@@ -19,6 +19,7 @@ class HomeAppBar extends StatelessWidget {
         IconButton(
           icon: const Icon(
             FontAwesomeIcons.magnifyingGlass,
+            size: 22,
           ),
           onPressed: () {
             GoRouter.of(context).push(kSearchView);
