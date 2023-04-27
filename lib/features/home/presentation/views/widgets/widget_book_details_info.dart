@@ -29,7 +29,7 @@ class BookDetailsInfoWidget extends StatelessWidget {
           height: 6,
         ),
         Text(
-          "Combic Book",
+          "Comic Book",
           style: Styles.textStyle18.copyWith(
               fontWeight: FontWeight.w400,
               fontStyle: FontStyle.italic,
