@@ -11,24 +11,6 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        // SliverAppBar(
-        //   pinned: true,
-        //   snap: true,
-        //   floating: true,
-        //   automaticallyImplyLeading: false,
-        //   title: const Text(
-        //     "BOOKILO",
-        //     style: Styles.appLogo,
-        //   ),
-        //   actions: [
-        //     IconButton(
-        //       icon: const Icon(
-        //         FontAwesomeIcons.magnifyingGlass,
-        //       ),
-        //       onPressed: () {},
-        //     ),
-        //   ],
-        // ),
         SliverToBoxAdapter(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
