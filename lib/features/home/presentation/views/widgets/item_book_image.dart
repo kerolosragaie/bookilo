@@ -4,7 +4,8 @@ import '../../../../../core/utils/app_router.dart';
 import 'image_custom_book.dart';
 
 class BookImageItem extends StatelessWidget {
-  const BookImageItem({super.key});
+  final bool? showButton;
+  const BookImageItem({super.key, this.showButton});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,9 @@ class BookImageItem extends StatelessWidget {
       onTap: () {
         GoRouter.of(context).push(kBookDetailsView);
       },
-      child: const CustomBookImage(),
+      child: CustomBookImage(
+        showButton: showButton ?? false,
+      ),
     );
   }
 }
