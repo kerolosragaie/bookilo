@@ -37,7 +37,26 @@ class HomeRepositoryImpl extends HomeRepository {
   }
 
   @override
-  Future<Either<Failure, List<Item>>> fetchBestSellerBooks() {
-    throw UnimplementedError();
+  Future<Either<Failure, List<Item>>> fetchFeaturedBooks() async {
+    try {
+      var data = await apiService.get(
+          endPoint: "volumes?q=subject:Programming&Filtering=free-ebooks");
+      BookModel? bookModel;
+      for (var item in data["items"]) {
+        bookModel!.items!.add(item);
+      }
+      return Right(
+        bookModel!.items!,
+      );
+    } catch (e) {
+      if (e is DioError) {
+        return Left(
+          ServerFailure.fromDioError(e),
+        );
+      }
+      return Left(
+        ServerFailure(e.toString()),
+      );
+    }
   }
 }
