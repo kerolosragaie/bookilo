@@ -4,6 +4,7 @@ import 'package:bookilo/core/errors/failures.dart';
 import 'package:bookilo/features/home/data/models/book_model/item.dart';
 import 'package:bookilo/features/home/data/repository/home_repository.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 class HomeRepositoryImpl extends HomeRepository {
   final ApiService apiService;
@@ -20,10 +21,18 @@ class HomeRepositoryImpl extends HomeRepository {
       for (var item in data["items"]) {
         bookModel!.items!.add(item);
       }
-
-      return Right(bookModel!.items!);
+      return Right(
+        bookModel!.items!,
+      );
     } catch (e) {
-      return Left(ServerFailure());
+      if (e is DioError) {
+        return Left(
+          ServerFailure.fromDioError(e),
+        );
+      }
+      return Left(
+        ServerFailure(e.toString()),
+      );
     }
   }
 
