@@ -42,11 +42,9 @@ class HomeRepositoryImpl extends HomeRepository {
       var data = await apiService.get(
           endPoint: "volumes?q=subject:Programming&Filtering=free-ebooks");
       BookModel? bookModel;
-      for (var item in data["items"]) {
-        bookModel!.items!.add(item);
-      }
+      bookModel!.items!.addAll(data["items"]);
       return Right(
-        bookModel!.items!,
+        bookModel.items!,
       );
     } catch (e) {
       if (e is DioError) {
