@@ -1,4 +1,5 @@
 import 'package:bookilo/features/home/presentation/views/book_details_view.dart';
+import 'package:bookilo/features/search/presentation/views/search_view.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/home/presentation/views/home_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
@@ -7,6 +8,7 @@ import '../../features/splash/presentation/views/splash_view.dart';
 const kSplashView = '/';
 const kHomeView = '/homeView';
 const kBookDetailsView = '/bookDetailsView';
+const kSearchView = '/searchView';
 
 abstract class AppRouter {
   static final router = GoRouter(
@@ -22,6 +24,10 @@ abstract class AppRouter {
       GoRoute(
         path: kBookDetailsView,
         builder: (context, state) => const BookDetailsView(),
+      ),
+      GoRoute(
+        path: kSearchView,
+        builder: (context, state) => const SearchView(),
       ),
     ],
   );
