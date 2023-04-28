@@ -1,6 +1,7 @@
 import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../core/widgets/widget_custom_error.dart';
 import '../../../../../core/widgets/widget_loading_indicator.dart';
 import '../../manager/newest_books_cubit/newest_books_cubit.dart';
 import 'item_book.dart';
@@ -13,12 +14,11 @@ class NewestBooksListView extends StatelessWidget {
     return BlocBuilder<NewestBooksCubit, NewestBooksState>(
       builder: (context, state) {
         if (state is NewestBooksLoading) {
-          return const SliverToBoxAdapter(
-            child: LoadingIndicatorWidget(),
-          );
+          return const LoadingIndicatorWidget(isSliverWidget: true);
         } else if (state is NewestBooksFailure) {
-          return SliverToBoxAdapter(
-            child: ErrorWidget(state.errorMessage),
+          return CustomErrorWidget(
+            errorMessage: state.errorMessage,
+            isSliverWidget: true,
           );
         } else if (state is NewestBooksSuccess) {
           return SliverPadding(
@@ -48,9 +48,7 @@ class NewestBooksListView extends StatelessWidget {
             ),
           );
         }
-        return const SliverToBoxAdapter(
-          child: LoadingIndicatorWidget(),
-        );
+        return const LoadingIndicatorWidget(isSliverWidget: true);
       },
     );
   }

@@ -5,14 +5,24 @@ import 'package:flutter/material.dart';
 class CustomErrorWidget extends StatelessWidget {
   final String? title;
   final String errorMessage;
+  final bool isSliverWidget;
   const CustomErrorWidget({
     Key? key,
     required this.errorMessage,
     this.title,
+    this.isSliverWidget = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    return isSliverWidget
+        ? SliverToBoxAdapter(
+            child: _buildWidget(context),
+          )
+        : _buildWidget(context);
+  }
+
+  Widget _buildWidget(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
