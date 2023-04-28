@@ -1,4 +1,4 @@
-import 'package:bookilo/core/utils/service_locater.dart';
+import 'package:bookilo/core/utils/service_locater.dart' as di;
 import 'package:bookilo/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookilo/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +8,7 @@ import 'core/utils/app_router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await setupServiceLocater();
+  await di.setupServiceLocater();
   runApp(const Bookilo());
 }
 
@@ -19,11 +19,11 @@ class Bookilo extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-            create: (context) =>
-                FeaturedBooksCubit(homeRepository: sl())..fetchFeaturedBooks()),
+            create: (_) => FeaturedBooksCubit(homeRepository: di.sl())
+              ..fetchFeaturedBooks()),
         BlocProvider(
-            create: (context) =>
-                NewestBooksCubit(homeRepository: sl())..fetchNewestBooks()),
+            create: (_) =>
+                NewestBooksCubit(homeRepository: di.sl())..fetchNewestBooks()),
       ],
       child: MaterialApp.router(
         showPerformanceOverlay: false,

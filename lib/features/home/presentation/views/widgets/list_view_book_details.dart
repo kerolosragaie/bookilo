@@ -1,3 +1,4 @@
+import 'package:bookilo/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'item_book_image.dart';
 
@@ -14,7 +15,9 @@ class BookDetailsListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return const Padding(
             padding: EdgeInsets.symmetric(horizontal: 5),
-            child: BookImageItem(),
+            child: BookImageItem(
+              bookModel: BookModel(),
+            ),
           );
         },
       ),
