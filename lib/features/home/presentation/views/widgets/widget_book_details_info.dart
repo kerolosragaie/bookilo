@@ -1,3 +1,4 @@
+import 'package:bookilo/core/constants/assets_data.dart';
 import 'package:bookilo/features/home/data/models/book_model/book_model.dart';
 import 'package:bookilo/features/home/presentation/views/widgets/widget_book_details_actions.dart';
 import 'package:bookilo/features/home/presentation/views/widgets/widget_book_rating.dart';
@@ -17,7 +18,7 @@ class BookDetailsInfoWidget extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.22),
           child: const CustomBookImage(
-            imageUrl: "",
+            imageUrl: AssetsData.kBookCoverUrl,
           ),
         ),
         const SizedBox(
@@ -42,8 +43,9 @@ class BookDetailsInfoWidget extends StatelessWidget {
         const SizedBox(
           height: 18,
         ),
-        const BookRatingWidget(
+        BookRatingWidget(
           mainAxisAlignment: MainAxisAlignment.center,
+          volumeInfo: bookModel.volumeInfo!,
         ),
         const SizedBox(
           height: 16,

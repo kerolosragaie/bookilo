@@ -30,14 +30,10 @@ class NewestBooksListView extends StatelessWidget {
               itemBuilder: (context, index, animation) {
                 return SlideTransition(
                   position: Tween<Offset>(
-                    begin: const Offset(0, -0.1),
-                    end: Offset.zero,
-                  ).animate(animation),
+                          begin: const Offset(0, -0.1), end: Offset.zero)
+                      .animate(animation),
                   child: FadeTransition(
-                    opacity: Tween<double>(
-                      begin: 0,
-                      end: 1,
-                    ).animate(animation),
+                    opacity: Tween<double>(begin: 0, end: 1).animate(animation),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: BookItem(

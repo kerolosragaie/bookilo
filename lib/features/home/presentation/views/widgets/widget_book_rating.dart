@@ -1,11 +1,15 @@
+import 'package:bookilo/features/home/data/models/book_model/volume_info.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/utils/styles.dart';
 
 class BookRatingWidget extends StatelessWidget {
   final MainAxisAlignment mainAxisAlignment;
+  final VolumeInfo volumeInfo;
   const BookRatingWidget(
-      {super.key, this.mainAxisAlignment = MainAxisAlignment.start});
+      {super.key,
+      this.mainAxisAlignment = MainAxisAlignment.start,
+      required this.volumeInfo});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,9 @@ class BookRatingWidget extends StatelessWidget {
           width: 6.3,
         ),
         Text(
-          "4.8",
+          volumeInfo.averageRating == null
+              ? "0"
+              : volumeInfo.averageRating.toString(),
           style: Styles.textStyle16.copyWith(
             fontWeight: FontWeight.bold,
           ),
@@ -32,7 +38,9 @@ class BookRatingWidget extends StatelessWidget {
         Opacity(
           opacity: .5,
           child: Text(
-            "(245)",
+            volumeInfo.ratingsCount == null
+                ? "(0)"
+                : "(${volumeInfo.ratingsCount.toString()})",
             style: Styles.textStyle14,
           ),
         ),
