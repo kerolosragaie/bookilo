@@ -7,7 +7,7 @@ import 'reading_modes.dart';
 
 class VolumeInfo extends Equatable {
   final String? title;
-  final List<dynamic>? authors;
+  final List<String>? authors;
   final String? publisher;
   final String? publishedDate;
   final String? description;
@@ -15,7 +15,7 @@ class VolumeInfo extends Equatable {
   final ReadingModes? readingModes;
   final int? pageCount;
   final String? printType;
-  final List<dynamic>? categories;
+  final List<String>? categories;
   final int? averageRating;
   final int? ratingsCount;
   final String? maturityRating;
