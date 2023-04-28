@@ -3,14 +3,15 @@ import 'package:bookilo/features/home/presentation/views/widgets/body_book_detai
 import 'package:flutter/material.dart';
 
 class BookDetailsView extends StatelessWidget {
-  const BookDetailsView({super.key});
+  final BookModel bookModel;
+  const BookDetailsView({super.key, required this.bookModel});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: BookDetailsBody(
-          bookModel: BookModel(),
+          bookModel: bookModel,
         ),
       ),
     );

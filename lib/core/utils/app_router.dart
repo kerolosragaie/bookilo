@@ -1,3 +1,4 @@
+import 'package:bookilo/features/home/data/models/book_model/book_model.dart';
 import 'package:bookilo/features/home/presentation/views/book_details_view.dart';
 import 'package:bookilo/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,11 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kBookDetailsView,
-        builder: (context, state) => const BookDetailsView(),
+        builder: (context, state) {
+          return const BookDetailsView(
+            bookModel: BookModel(),
+          );
+        },
       ),
       GoRoute(
         path: kSearchView,

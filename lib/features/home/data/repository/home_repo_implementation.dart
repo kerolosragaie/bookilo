@@ -15,10 +15,11 @@ class HomeRepositoryImpl extends HomeRepository {
     try {
       var data = await apiService.get(
           endPoint:
-              "volumes?q=subject:Programming&Sorting=newest&Filtering=free-ebooks");
+              "volumes?Filtering=free-ebooks&q=computer science&Sorting=newest");
       List<BookModel> bookModelsList = [];
       data["items"].forEach(
-          (element) => bookModelsList.add(BookModel.fromJson(element)));
+        (element) => bookModelsList.add(BookModel.fromJson(element)),
+      );
       return Right(
         bookModelsList,
       );
@@ -41,7 +42,8 @@ class HomeRepositoryImpl extends HomeRepository {
           endPoint: "volumes?q=subject:Programming&Filtering=free-ebooks");
       List<BookModel> bookModelsList = [];
       data["items"].forEach(
-          (element) => bookModelsList.add(BookModel.fromJson(element)));
+        (element) => bookModelsList.add(BookModel.fromJson(element)),
+      );
       return Right(
         bookModelsList,
       );

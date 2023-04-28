@@ -1,3 +1,4 @@
+import 'package:bookilo/core/constants/assets_data.dart';
 import 'package:bookilo/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
@@ -16,7 +17,8 @@ class BookImageItem extends StatelessWidget {
         GoRouter.of(context).push(kBookDetailsView);
       },
       child: CustomBookImage(
-        imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail ?? "",
+        imageUrl: bookModel.volumeInfo!.imageLinks?.thumbnail ??
+            AssetsData.kNoImageFoundUrl,
         showButton: showButton ?? false,
       ),
     );

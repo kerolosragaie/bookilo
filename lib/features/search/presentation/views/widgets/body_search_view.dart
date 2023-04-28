@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
-import 'list_view_search_result.dart';
 import 'text_field_search.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -26,9 +25,10 @@ class SearchViewBody extends StatelessWidget {
             ],
           ),
         ),
-        const Expanded(
-          child: SearchResultListView(),
-        ),
+        //TODO uncomment when implment search view
+        // const Expanded(
+        //   child: SearchResultListView(),
+        // ),
       ],
     );
   }
