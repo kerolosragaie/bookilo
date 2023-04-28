@@ -21,6 +21,7 @@ class FeaturedBooksListView extends StatelessWidget {
             return CustomErrorWidget(errorMessage: state.errorMessage);
           } else if (state is FeaturedBooksSuccess) {
             return LiveList.options(
+              physics: const BouncingScrollPhysics(),
               options: const LiveOptions(
                 showItemDuration: Duration(milliseconds: 200),
               ),

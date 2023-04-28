@@ -1,12 +1,13 @@
-import 'package:bookilo/core/constants/assets_data.dart';
 import 'package:bookilo/core/utils/styles.dart';
+import 'package:bookilo/features/home/data/models/book_model/book_model.dart';
 import 'package:bookilo/features/home/presentation/views/widgets/widget_book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/app_router.dart';
 
 class BookItem extends StatelessWidget {
-  const BookItem({super.key});
+  final BookModel bookModel;
+  const BookItem({super.key, required this.bookModel});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -20,11 +21,12 @@ class BookItem extends StatelessWidget {
             AspectRatio(
               aspectRatio: 2.5 / 4,
               child: Container(
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
                   image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage(AssetsData.kBookCoverEx),
+                    image: NetworkImage(
+                        bookModel.volumeInfo!.imageLinks!.thumbnail!),
                   ),
                 ),
               ),

@@ -38,9 +38,11 @@ class NewestBooksListView extends StatelessWidget {
                       begin: 0,
                       end: 1,
                     ).animate(animation),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      child: BookItem(),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: BookItem(
+                        bookModel: state.booksList[index],
+                      ),
                     ),
                   ),
                 );
