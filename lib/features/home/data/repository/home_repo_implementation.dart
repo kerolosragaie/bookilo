@@ -1,7 +1,6 @@
 import 'package:bookilo/core/utils/api_service.dart';
 import 'package:bookilo/features/home/data/models/book_model/book_model.dart';
 import 'package:bookilo/core/errors/failures.dart';
-import 'package:bookilo/features/home/data/models/book_model/item.dart';
 import 'package:bookilo/features/home/data/repository/home_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -12,17 +11,17 @@ class HomeRepositoryImpl extends HomeRepository {
   HomeRepositoryImpl({required this.apiService});
 
   @override
-  Future<Either<Failure, List<Item>>> fetchNewestBooks() async {
+  Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
     try {
       var data = await apiService.get(
           endPoint:
               "volumes?q=subject:Programming&Sorting=newest&Filtering=free-ebooks");
-      BookModel? bookModel;
-      for (var item in data["items"]) {
-        bookModel!.items!.add(item);
-      }
+      List<BookModel> bookModelsList = [];
+      data["items"].forEach(
+          (element) => bookModelsList.add(BookModel.fromJson(element)));
+
       return Right(
-        bookModel!.items!,
+        bookModelsList,
       );
     } catch (e) {
       if (e is DioError) {
@@ -37,14 +36,15 @@ class HomeRepositoryImpl extends HomeRepository {
   }
 
   @override
-  Future<Either<Failure, List<Item>>> fetchFeaturedBooks() async {
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       var data = await apiService.get(
           endPoint: "volumes?q=subject:Programming&Filtering=free-ebooks");
-      BookModel? bookModel;
-      bookModel!.items!.addAll(data["items"]);
+      List<BookModel> bookModelsList = [];
+      data["items"].forEach(
+          (element) => bookModelsList.add(BookModel.fromJson(element)));
       return Right(
-        bookModel.items!,
+        bookModelsList,
       );
     } catch (e) {
       if (e is DioError) {
