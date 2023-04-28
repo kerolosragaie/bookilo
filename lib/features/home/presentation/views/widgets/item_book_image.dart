@@ -16,7 +16,7 @@ class BookImageItem extends StatelessWidget {
         GoRouter.of(context).push(kBookDetailsView);
       },
       child: CustomBookImage(
-        imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!,
+        imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail ?? "",
         showButton: showButton ?? false,
       ),
     );

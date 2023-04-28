@@ -47,6 +47,7 @@ dependencies:
   #For api calling and internet connection checker
   dio: ^5.1.1
   internet_connection_checker: ^1.0.0+1
+  cached_network_image: ^3.2.3
 
   flutter:
     sdk: flutter

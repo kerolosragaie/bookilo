@@ -1,6 +1,7 @@
 import 'package:bookilo/core/utils/styles.dart';
 import 'package:bookilo/features/home/data/models/book_model/book_model.dart';
 import 'package:bookilo/features/home/presentation/views/widgets/widget_book_rating.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/app_router.dart';
@@ -18,16 +19,14 @@ class BookItem extends StatelessWidget {
         height: 125,
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 2.5 / 4,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-                  image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: NetworkImage(
-                        bookModel.volumeInfo!.imageLinks!.thumbnail!),
-                  ),
+            ClipRRect(
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
+              child: AspectRatio(
+                aspectRatio: 2.5 / 4,
+                child: CachedNetworkImage(
+                  imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!,
+                  fit: BoxFit.fill,
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),
