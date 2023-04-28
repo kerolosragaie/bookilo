@@ -1,8 +1,9 @@
+import 'package:bookilo/core/constants/assets_data.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomBookImage extends StatelessWidget {
-  final String imageUrl;
+  final String? imageUrl;
   final bool showButton;
   const CustomBookImage(
       {super.key, this.showButton = false, required this.imageUrl});
@@ -16,11 +17,17 @@ class CustomBookImage extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            CachedNetworkImage(
-              imageUrl: imageUrl,
-              fit: BoxFit.fill,
-              errorWidget: (context, url, error) => const Icon(Icons.error),
-            ),
+            imageUrl == null
+                ? Image.asset(
+                    AssetsData.kCoverNotAvailable,
+                    fit: BoxFit.fill,
+                  )
+                : CachedNetworkImage(
+                    imageUrl: imageUrl!,
+                    fit: BoxFit.fill,
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
+                  ),
             showButton
                 ? Positioned(
                     right: 0,

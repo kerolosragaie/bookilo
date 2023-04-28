@@ -1,4 +1,3 @@
-import 'package:bookilo/core/constants/assets_data.dart';
 import 'package:bookilo/features/home/data/models/book_model/book_model.dart';
 import 'package:bookilo/features/home/data/models/book_model/volume_info.dart';
 import 'package:bookilo/features/home/presentation/views/widgets/widget_book_details_actions.dart';
@@ -19,8 +18,7 @@ class BookDetailsInfoWidget extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.22),
           child: CustomBookImage(
-            imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ??
-                AssetsData.kNoImageFoundUrl,
+            imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail,
           ),
         ),
         const SizedBox(

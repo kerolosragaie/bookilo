@@ -3,7 +3,6 @@ import 'package:bookilo/features/home/data/models/book_model/book_model.dart';
 import 'package:bookilo/features/home/presentation/views/widgets/widget_book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../../core/constants/assets_data.dart';
 import '../../../../../core/utils/app_router.dart';
 import 'image_custom_book.dart';
 
@@ -21,9 +20,7 @@ class BookItem extends StatelessWidget {
         child: Row(
           children: [
             CustomBookImage(
-              imageUrl: bookModel.volumeInfo!.imageLinks?.thumbnail ??
-                  AssetsData.kNoImageFoundUrl,
-            ),
+                imageUrl: bookModel.volumeInfo!.imageLinks?.thumbnail),
             const SizedBox(
               width: 30,
             ),
