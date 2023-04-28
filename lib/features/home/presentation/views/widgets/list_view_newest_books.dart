@@ -1,10 +1,9 @@
 import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
-
 import 'item_book.dart';
 
-class BestSellerListView extends StatelessWidget {
-  const BestSellerListView({super.key});
+class NewestBooksListView extends StatelessWidget {
+  const NewestBooksListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,18 +35,3 @@ class BestSellerListView extends StatelessWidget {
     );
   }
 }
-/*
-
-SliverList(
-      delegate: SliverChildBuilderDelegate(
-        childCount: 10,
-        (context, index) {
-          return const Padding(
-            padding: EdgeInsets.symmetric(vertical: 10),
-            child: BookItem(),
-          );
-        },
-      ),
-    );
-
- */

@@ -1,7 +1,7 @@
 import 'package:bookilo/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-import 'list_view_best_seller.dart';
+import 'list_view_newest_books.dart';
 
 class BestSellerBody extends StatelessWidget {
   const BestSellerBody({super.key});
@@ -21,7 +21,7 @@ class BestSellerBody extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        const BestSellerListView(),
+        const NewestBooksListView(),
       ],
     );
   }

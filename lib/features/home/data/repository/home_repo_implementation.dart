@@ -19,7 +19,6 @@ class HomeRepositoryImpl extends HomeRepository {
       List<BookModel> bookModelsList = [];
       data["items"].forEach(
           (element) => bookModelsList.add(BookModel.fromJson(element)));
-
       return Right(
         bookModelsList,
       );

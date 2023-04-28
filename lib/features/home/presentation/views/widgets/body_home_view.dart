@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
 import 'app_bar_home.dart';
-import 'list_view_best_seller.dart';
-import 'list_view_books.dart';
+import 'list_view_newest_books.dart';
+import 'list_view_featured_books.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -19,7 +19,7 @@ class HomeViewBody extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                 child: HomeAppBar(),
               ),
-              const BooksListView(),
+              const FeaturedBooksListView(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Column(
@@ -42,7 +42,7 @@ class HomeViewBody extends StatelessWidget {
         ),
         const SliverPadding(
           padding: EdgeInsets.symmetric(horizontal: 30),
-          sliver: BestSellerListView(),
+          sliver: NewestBooksListView(),
         ),
       ],
     );
