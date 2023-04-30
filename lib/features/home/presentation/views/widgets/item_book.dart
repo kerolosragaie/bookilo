@@ -1,5 +1,5 @@
 import 'package:bookilo/core/utils/styles.dart';
-import 'package:bookilo/features/home/data/models/book_model/book_model.dart';
+import 'package:bookilo/core/models/book_model/book_model.dart';
 import 'package:bookilo/features/home/presentation/views/widgets/widget_book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

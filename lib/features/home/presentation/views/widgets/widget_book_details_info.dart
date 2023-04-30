@@ -1,5 +1,5 @@
-import 'package:bookilo/features/home/data/models/book_model/book_model.dart';
-import 'package:bookilo/features/home/data/models/book_model/volume_info.dart';
+import 'package:bookilo/core/models/book_model/book_model.dart';
+import 'package:bookilo/core/models/book_model/volume_info.dart';
 import 'package:bookilo/features/home/presentation/manager/open_url_cubit/open_url_cubit.dart';
 import 'package:bookilo/features/home/presentation/views/widgets/widget_book_details_actions.dart';
 import 'package:bookilo/features/home/presentation/views/widgets/widget_book_rating.dart';

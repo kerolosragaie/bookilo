@@ -1,4 +1,4 @@
-import 'package:bookilo/features/home/data/models/book_model/book_model.dart';
+import 'package:bookilo/core/models/book_model/book_model.dart';
 import 'package:bookilo/features/home/presentation/views/widgets/app_bar_book_details.dart';
 import 'package:bookilo/features/home/presentation/views/widgets/widget_book_details_info.dart';
 import 'package:bookilo/features/home/presentation/views/widgets/widget_show_similar_books.dart';

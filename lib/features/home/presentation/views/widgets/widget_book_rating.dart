@@ -1,4 +1,4 @@
-import 'package:bookilo/features/home/data/models/book_model/volume_info.dart';
+import 'package:bookilo/core/models/book_model/volume_info.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/utils/styles.dart';

@@ -1,4 +1,4 @@
-import 'package:bookilo/features/home/data/models/book_model/book_model.dart';
+import 'package:bookilo/core/models/book_model/book_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/app_router.dart';

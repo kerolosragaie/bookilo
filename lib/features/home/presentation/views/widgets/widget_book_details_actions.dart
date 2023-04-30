@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:bookilo/core/widgets/widget_loading_indicator.dart';
-import 'package:bookilo/features/home/data/models/book_model/book_model.dart';
+import 'package:bookilo/core/models/book_model/book_model.dart';
 import 'package:bookilo/features/home/presentation/manager/open_url_cubit/open_url_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
