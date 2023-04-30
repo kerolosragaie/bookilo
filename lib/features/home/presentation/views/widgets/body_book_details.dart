@@ -33,7 +33,8 @@ class BookDetailsBody extends StatelessWidget {
                   ),
                 ),
                 ShowSimilarBooksWidget(
-                  category: bookModel.volumeInfo!.categories!.first,
+                  category: bookModel.volumeInfo!.categories?.first ??
+                      "computer scinece",
                 ),
               ],
             ),

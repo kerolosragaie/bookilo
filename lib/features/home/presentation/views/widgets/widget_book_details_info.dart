@@ -26,6 +26,9 @@ class BookDetailsInfoWidget extends StatelessWidget {
         ),
         Text(
           bookModel.volumeInfo!.title!,
+          maxLines: 2,
+          textAlign: TextAlign.center,
+          overflow: TextOverflow.ellipsis,
           style: Styles.textStyle30.copyWith(
             fontWeight: FontWeight.w700,
           ),
@@ -34,7 +37,7 @@ class BookDetailsInfoWidget extends StatelessWidget {
           height: 6,
         ),
         Text(
-          bookModel.volumeInfo!.authors!.first,
+          bookModel.volumeInfo!.authors?.first ?? "Unkown",
           style: Styles.textStyle18.copyWith(
               fontWeight: FontWeight.w400,
               fontStyle: FontStyle.italic,

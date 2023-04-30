@@ -45,19 +45,20 @@ class CustomButton extends StatelessWidget {
                   Text(
                     "${oldPrice!} \$",
                     style: Styles.textStyle14.copyWith(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
-                        fontSize: fontSize,
-                        decoration: TextDecoration.lineThrough),
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize: fontSize,
+                      decoration: TextDecoration.lineThrough,
+                    ),
                   ),
                   const SizedBox(
                     width: 5,
                   ),
                   Text(
                     text,
-                    style: Styles.textStyle18.copyWith(
+                    style: Styles.textStyle20.copyWith(
                       color: textColor,
-                      fontWeight: FontWeight.w900,
+                      fontWeight: FontWeight.bold,
                       fontSize: fontSize,
                     ),
                   )

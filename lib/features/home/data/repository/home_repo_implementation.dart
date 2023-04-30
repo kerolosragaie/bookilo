@@ -65,7 +65,7 @@ class HomeRepositoryImpl extends HomeRepository {
     try {
       var data = await apiService.get(
           endPoint:
-              "volumes?q=computer science&Filtering=free-ebooks&Sorting=relevance");
+              "volumes?q=$category&Filtering=free-ebooks&Sorting=relevance");
       List<BookModel> bookModelsList = [];
       data["items"].forEach(
         (element) => bookModelsList.add(BookModel.fromJson(element)),
