@@ -52,7 +52,7 @@ class BookActionsWidget extends StatelessWidget {
   Widget _buildFreePreviewCustomButton(BuildContext context,
       {required bool isLoading}) {
     return CustomButton(
-      text: "Free preview",
+      text: "Preview",
       backgroundColor: const Color(0xffEF8262),
       textColor: Colors.white,
       isLoading: isLoading,
