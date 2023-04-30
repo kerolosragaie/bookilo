@@ -12,7 +12,7 @@
     </intent>
 </queries>
    <application
-        android:label="bookilo"
+        android:label="Bookilo"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

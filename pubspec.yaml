@@ -32,8 +32,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   font_awesome_flutter: ^10.4.0
   google_fonts: ^4.0.3
-  hero_text: ^0.0.1
   auto_animated: ^3.1.0
+  flutter_native_splash: ^2.2.19
   #For Functional programming
   dartz: ^0.10.1
   equatable: ^2.0.5
@@ -56,6 +56,17 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+flutter_native_splash:
+  color: "#100b20"
+  color_dark: "#100b20"
+  image: assets/images/splash.png
+  image_dark: assets/images/splash.png
+  web: false
+  android_12:
+    image: assets/images/splash.png
+    icon_background_color: "#100b20"
+    image_dark: assets/images/splash.png
+    icon_background_color_dark: "#100b20"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
