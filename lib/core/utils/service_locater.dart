@@ -12,10 +12,6 @@ Future<void> setupServiceLocater() async {
   sl.registerLazySingleton<HomeRepository>(
       () => HomeRepositoryImpl(apiService: sl()));
 
-  //Cubits
-  /*sl.registerFactory(() => FeaturedBooksCubit(homeRepository: sl()));
-  sl.registerFactory(() => NewestBooksCubit(homeRepository: sl()));*/
-
   //!core
   sl.registerLazySingleton<ApiService>(() => ApiService(sl()));
 

@@ -1,6 +1,7 @@
 import 'package:bookilo/core/models/book_model/book_model.dart';
 import 'package:bookilo/features/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
 import 'package:bookilo/features/home/presentation/views/book_details_view.dart';
+import 'package:bookilo/features/search/presentation/manager/search_for_book_cubit/search_for_book_cubit.dart';
 import 'package:bookilo/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -48,7 +49,10 @@ abstract class AppRouter {
         pageBuilder: (context, state) => CustomTransitionPage<void>(
           transitionDuration: const Duration(milliseconds: 200),
           key: state.pageKey,
-          child: const SearchView(),
+          child: BlocProvider(
+            create: (context) => SearchForBookCubit(homeRepository: di.sl()),
+            child: const SearchView(),
+          ),
           transitionsBuilder: (context, animation, secondaryAnimation, child) =>
               FadeTransition(opacity: animation, child: child),
         ),

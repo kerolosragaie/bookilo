@@ -1,5 +1,7 @@
 import 'package:bookilo/core/utils/styles.dart';
+import 'package:bookilo/features/search/presentation/manager/search_for_book_cubit/search_for_book_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SearchTextField extends StatelessWidget {
@@ -7,9 +9,11 @@ class SearchTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController searchForBookController = TextEditingController();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 20),
       child: TextField(
+        controller: searchForBookController,
         cursorColor: Colors.white,
         decoration: InputDecoration(
           suffixIcon: IconButton(
@@ -18,7 +22,10 @@ class SearchTextField extends StatelessWidget {
               size: 22,
               color: Colors.white,
             ),
-            onPressed: () {},
+            onPressed: () {
+              BlocProvider.of<SearchForBookCubit>(context)
+                  .searchForBook(bookName: searchForBookController.text);
+            },
           ),
           hintText: "Search",
           hintStyle: Styles.textStyle16.copyWith(color: Colors.white),

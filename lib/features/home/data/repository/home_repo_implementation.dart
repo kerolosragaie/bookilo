@@ -94,7 +94,9 @@ class HomeRepositoryImpl extends HomeRepository {
       List<BookModel> bookModelsList = [];
       data["items"].forEach((element) {
         BookModel book = BookModel.fromJson(element);
-        if (book.volumeInfo!.title!.contains(bookName)) {
+        if (book.volumeInfo!.title!
+            .toLowerCase()
+            .contains(bookName.toLowerCase())) {
           bookModelsList.add(book);
         }
       });

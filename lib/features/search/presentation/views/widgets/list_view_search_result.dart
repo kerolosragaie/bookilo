@@ -1,22 +1,23 @@
 import 'package:bookilo/core/models/book_model/book_model.dart';
-import 'package:bookilo/core/models/book_model/volume_info.dart';
 import 'package:flutter/material.dart';
 import '../../../../home/presentation/views/widgets/item_book.dart';
 
 class SearchResultListView extends StatelessWidget {
-  const SearchResultListView({super.key});
+  final List<BookModel> booksList;
+  const SearchResultListView({super.key, required this.booksList});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       scrollDirection: Axis.vertical,
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      itemCount: 10,
+      itemCount: booksList.length,
+      physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) {
-        return const Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
           child: BookItem(
-            bookModel: BookModel(volumeInfo: VolumeInfo()),
+            bookModel: booksList[index],
           ),
         );
       },
