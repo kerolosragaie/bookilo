@@ -5,8 +5,11 @@ import 'package:flutter/material.dart';
 class CustomBookImage extends StatelessWidget {
   final String? imageUrl;
   final bool showButton;
-  const CustomBookImage(
-      {super.key, this.showButton = false, required this.imageUrl});
+  const CustomBookImage({
+    super.key,
+    this.showButton = false,
+    required this.imageUrl,
+  });
 
   @override
   Widget build(BuildContext context) {

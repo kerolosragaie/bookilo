@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import '../../../../../core/widgets/button_custom.dart';
 
@@ -10,7 +12,9 @@ class BookActionsWidget extends StatelessWidget {
       children: [
         Expanded(
           child: CustomButton(
-            text: "19.99 \$",
+            text: "Free",
+            oldPrice: Random().nextInt((500 - 100)),
+            textColor: Colors.green,
             onPressed: () {},
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(16),

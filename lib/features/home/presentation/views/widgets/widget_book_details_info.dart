@@ -25,7 +25,7 @@ class BookDetailsInfoWidget extends StatelessWidget {
           height: 30,
         ),
         Text(
-          "The Batman Book",
+          bookModel.volumeInfo!.title!,
           style: Styles.textStyle30.copyWith(
             fontWeight: FontWeight.w700,
           ),
@@ -34,7 +34,7 @@ class BookDetailsInfoWidget extends StatelessWidget {
           height: 6,
         ),
         Text(
-          "Comic Book",
+          bookModel.volumeInfo!.authors!.first,
           style: Styles.textStyle18.copyWith(
               fontWeight: FontWeight.w400,
               fontStyle: FontStyle.italic,

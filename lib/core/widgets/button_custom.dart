@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
+  final num? oldPrice;
   final Color backgroundColor;
   final Color textColor;
   final BorderRadius? borderRadius;
@@ -15,7 +16,8 @@ class CustomButton extends StatelessWidget {
       this.borderRadius,
       required this.onPressed,
       required this.text,
-      this.fontSize});
+      this.fontSize,
+      this.oldPrice});
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +30,39 @@ class CustomButton extends StatelessWidget {
             borderRadius: borderRadius ?? BorderRadius.circular(16),
           ),
         ),
-        child: Text(
-          text,
-          style: Styles.textStyle16.copyWith(
-            color: textColor,
-            fontWeight: FontWeight.w900,
-            fontSize: fontSize,
-          ),
-        ),
+        child: oldPrice == null
+            ? Text(
+                text,
+                style: Styles.textStyle16.copyWith(
+                  color: textColor,
+                  fontWeight: FontWeight.w900,
+                  fontSize: fontSize,
+                ),
+              )
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "${oldPrice!} \$",
+                    style: Styles.textStyle14.copyWith(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                        fontSize: fontSize,
+                        decoration: TextDecoration.lineThrough),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    text,
+                    style: Styles.textStyle18.copyWith(
+                      color: textColor,
+                      fontWeight: FontWeight.w900,
+                      fontSize: fontSize,
+                    ),
+                  )
+                ],
+              ),
         onPressed: () => onPressed(),
       ),
     );

@@ -7,13 +7,17 @@ import 'image_custom_book.dart';
 class BookImageItem extends StatelessWidget {
   final bool? showButton;
   final BookModel bookModel;
-  const BookImageItem({super.key, this.showButton, required this.bookModel});
+  const BookImageItem({
+    super.key,
+    this.showButton,
+    required this.bookModel,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(kBookDetailsView);
+        GoRouter.of(context).push(kBookDetailsView, extra: bookModel);
       },
       child: CustomBookImage(
         imageUrl: bookModel.volumeInfo!.imageLinks?.thumbnail,

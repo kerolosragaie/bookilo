@@ -1,7 +1,7 @@
 import 'package:bookilo/features/home/data/models/book_model/book_model.dart';
 import 'package:bookilo/features/home/presentation/views/widgets/app_bar_book_details.dart';
 import 'package:bookilo/features/home/presentation/views/widgets/widget_book_details_info.dart';
-import 'package:bookilo/features/home/presentation/views/widgets/widget_show_more_books.dart';
+import 'package:bookilo/features/home/presentation/views/widgets/widget_show_similar_books.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsBody extends StatelessWidget {
@@ -11,6 +11,7 @@ class BookDetailsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
       slivers: [
         SliverFillRemaining(
           hasScrollBody: false,
@@ -31,7 +32,9 @@ class BookDetailsBody extends StatelessWidget {
                     height: 16,
                   ),
                 ),
-                const ShowMoreBooksWidget(),
+                ShowSimilarBooksWidget(
+                  category: bookModel.volumeInfo!.categories!.first,
+                ),
               ],
             ),
           ),
