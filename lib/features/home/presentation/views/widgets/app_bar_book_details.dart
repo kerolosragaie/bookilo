@@ -1,3 +1,4 @@
+import 'package:bookilo/core/widgets/snack_bar_message.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
@@ -22,7 +23,12 @@ class BookDetailsAppBar extends StatelessWidget {
           icon: const Icon(
             Icons.shopping_cart_outlined,
           ),
-          onPressed: () {},
+          onPressed: () {
+            SnackbarMessage.showErrorSnackBar(
+              context: context,
+              message: "Sorry, this feature not available right now!",
+            );
+          },
         ),
       ],
     );

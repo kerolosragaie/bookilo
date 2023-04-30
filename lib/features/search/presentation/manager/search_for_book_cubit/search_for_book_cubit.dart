@@ -13,12 +13,16 @@ class SearchForBookCubit extends Cubit<SearchForBookState> {
   }) : super(SearchForBookInitial());
 
   Future<void> searchForBook({required String bookName}) async {
-    emit(SearchForBookLoading());
-    var result = await homeRepository.fetchSearchForBook(bookName: bookName);
-    result.fold((failure) {
-      emit(SearchForBookFailure(failure.errorMessage));
-    }, (booksList) {
-      emit(SearchForBookSuccess(booksList));
-    });
+    if (bookName.isEmpty) {
+      emit(SearchForBookInitial());
+    } else {
+      emit(SearchForBookLoading());
+      var result = await homeRepository.fetchSearchForBook(bookName: bookName);
+      result.fold((failure) {
+        emit(SearchForBookFailure(failure.errorMessage));
+      }, (booksList) {
+        emit(SearchForBookSuccess(booksList));
+      });
+    }
   }
 }
