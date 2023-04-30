@@ -58,4 +58,30 @@ class HomeRepositoryImpl extends HomeRepository {
       );
     }
   }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks(
+      {required String category}) async {
+    try {
+      var data = await apiService.get(
+          endPoint:
+              "volumes?q=computer science&Filtering=free-ebooks&Sorting=relevance");
+      List<BookModel> bookModelsList = [];
+      data["items"].forEach(
+        (element) => bookModelsList.add(BookModel.fromJson(element)),
+      );
+      return Right(
+        bookModelsList,
+      );
+    } catch (e) {
+      if (e is DioError) {
+        return Left(
+          ServerFailure.fromDioError(e),
+        );
+      }
+      return Left(
+        ServerFailure(e.toString()),
+      );
+    }
+  }
 }
