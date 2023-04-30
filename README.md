@@ -1,16 +1,21 @@
-# bookilo
+<h1 align="center">Bookilo</h1>
 
-A new Flutter project.
+[![Linkedin: kerollosragaie](https://img.shields.io/badge/-kerollosragaie-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/kerollos-ragaie-youssef-b9529aa6/)](https://www.linkedin.com/in/kerollos-ragaie/)
+[![GitHub Kerollos Ragaie](https://img.shields.io/github/followers/kerolosragaie?label=follow&style=social)](https://github.com/kerolosragaie)
 
-## Getting Started
+# ℹ️ Overview
+- Used Flutter with BLoC pattern and MVVM to create sample book selling app to search nad view for online books.
+- Played with some fancy UI widgets.
+- Dependency injection and much much more...
 
-This project is a starting point for a Flutter application.
+# 📌 Used API
 
-A few resources to get you started if this is your first Flutter project:
+- Free API : https://www.googleapis.com/books/v1/volumes?q=computer-science
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# 📱 Screens
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="assets/show/gif_1.gif" width="340" height="560"/>
+
+<img src="assets/show/gif_2.gif" width="340" height="560"/>
+
+<img src="assets/show/gif_3.gif" width="340" height="560"/>
