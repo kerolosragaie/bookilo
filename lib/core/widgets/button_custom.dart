@@ -1,4 +1,5 @@
 import 'package:bookilo/core/utils/styles.dart';
+import 'package:bookilo/core/widgets/widget_loading_indicator.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -9,6 +10,7 @@ class CustomButton extends StatelessWidget {
   final BorderRadius? borderRadius;
   final Function onPressed;
   final double? fontSize;
+  final bool isLoading;
   const CustomButton(
       {super.key,
       this.backgroundColor = Colors.white,
@@ -17,7 +19,8 @@ class CustomButton extends StatelessWidget {
       required this.onPressed,
       required this.text,
       this.fontSize,
-      this.oldPrice});
+      this.oldPrice,
+      this.isLoading = false});
 
   @override
   Widget build(BuildContext context) {
@@ -31,14 +34,7 @@ class CustomButton extends StatelessWidget {
           ),
         ),
         child: oldPrice == null
-            ? Text(
-                text,
-                style: Styles.textStyle16.copyWith(
-                  color: textColor,
-                  fontWeight: FontWeight.w900,
-                  fontSize: fontSize,
-                ),
-              )
+            ? _buildIsLoadingWidget()
             : Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -67,5 +63,18 @@ class CustomButton extends StatelessWidget {
         onPressed: () => onPressed(),
       ),
     );
+  }
+
+  Widget _buildIsLoadingWidget() {
+    return !isLoading
+        ? Text(
+            text,
+            style: Styles.textStyle16.copyWith(
+              color: textColor,
+              fontWeight: FontWeight.w900,
+              fontSize: fontSize,
+            ),
+          )
+        : const Center(child: LoadingIndicatorWidget());
   }
 }
